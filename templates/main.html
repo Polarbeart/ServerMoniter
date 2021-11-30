@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ServerMontiner</title>
+        <script src="../static/js/jquery-1.11.1.min.js"></script>
+		<script src="../static/js/echarts2.js"></script>
+        <link href="../static/css/main.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div id="gyroContain">
+<!--			<div id="title">SEVER MONITORING</div>-->
+			<div id="title">服务器实时监控</div>
+			<div id="tim"></div>
+			<form id="list" action="/">
+				<select style="color:white;background-color: #100C2A;" id="selector" name="list_value">
+<!--					<option value="168.11">168.11</option>-->
+<!--					<option value="168.12">168.12</option>-->
+<!--					<option value="168.13">168.13</option>-->
+<!--					<option value="168.14">168.14</option>-->
+					{% for cate in cates %}
+<!--					<option id ="select_value" class="select_value" value="select_value" selected="selected"></option>-->
+					<option value="{{cate}}">{{cate}}</option>
+					{% endfor %}
+					<input type="submit" style="color:white;background-color: #100C2A;" value="Submit">
+				</select>
+			</form>
+
+			
+			<div id="l1">我是左1</div>
+			<div id="l2">我是左2</div>
+			<div id="c1">
+				<div class="num"><h1></h1></div>
+				<div class="num"><h1></h1></div>
+				<div class="num"><h1></h1></div>
+				<div class="num"><h1></h1></div>
+				<div class="txt"><h2>CPU_PER</h2></div>
+				<div class="txt"><h2>MEM_PER</h2></div>
+				<div class="txt"><h2>PROG_NUM</h2></div>
+				<div class="txt"><h2>TIME</h2></div>
+			</div>
+			<div id="c2" >
+				<table class="table"  width="100px" align="left" border="1" >
+                        <tr>
+                            <th>Name</th>
+                            <th>MemUsed</th>
+							<th>State</th>
+							<th>StartTime</th>
+							<th>Port</th>
+                        </tr>
+                        <tbody id="tabletext">
+<!--						<meta http-equiv="refresh" content="5">-->
+							{% for i in content %}
+                            <tr>
+                                {% for j in i %}
+                                    <td>{{ j }}</td>
+                                {% endfor %}
+                            </tr>
+                       		{% endfor %}
+                        </tbody>
+                    </table>
+</div>
+			<div id="r1">我是右1</div>
+			<div id="r2"></div>
+<!--			<script src="../static/js/ec_center.js"></script>-->
+			<script src="../static/js/center.js"></script>
+			<script src="../static/js/ec_left1.js"></script>
+			<script src="../static/js/ec_left2.js"></script>
+			<script src="../static/js/ec_right1.js"> </script>
+<!--			<script src="../static/js/ec_right2.js"></script>-->
+			<script src="../static/js/controller.js"> </script>
+			<script src="../static/js/ec_r2.js"></script>
+
+		</div>
+	</body>
+</html>
